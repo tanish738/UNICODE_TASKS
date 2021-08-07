@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width ,intial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <strong>POKEMONs</strong>
+        <br>
+        <strong>You need to submit before viewing</strong>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form}}
+            <br>
+            <input type="submit" href="{% url 'home' pk %}" />
+            <br>
+            <strong>USING HTML FORM</strong>
+            <p>Please select view to view all the pokemons for the selected type.</p>
+            <a  type="Submit" href="{% url 'home' pk %}">View</a>
+            <br>
+            <strong>USING DJANGO FORMS</strong>
+            <p>Please select view to view all the pokemons for the selected type and thier data.</p>
+            <a  type="Submit" href="{% url 'pokemon' pk %}">View</a>
+        </form>
+    </body>
+</html>

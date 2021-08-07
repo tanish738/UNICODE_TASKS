@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <tr>
+                <td><input type="text" name="PokemonType" placeholder="Please enter the type of Pokemon"></td>
+                <td>{{ error_message }}</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="Pokemon" placeholder="Please enter the name of pokemon"></td>
+                <td>{{ error_name_message }}</td>
+            </tr>
+            <tr>
+                <td><input type="submit"></td>
+            </tr>
+            <strong>{{ error }}</strong>
+        </form>
+    </table>
+    
+        <strong>TYPE:{{ type }}</strong>
+        <br>
+        <strong>NAME:{{ name }}</strong>
+        <br>
+        <strong>HEIGHT:{{ height }}</strong>
+        <br>
+        <strong>WEIGHT:{{ weight }}</strong>
+        <br>
+        <strong>MOVES:{{ move }}</strong>
+        <br>
+        <strong>ABILITIES:{{ abilities}}</strong>
+        <br>
+        <img src="{{ url }}" alt="">
+        <br>
+    {% for poke_data in data %}
+        <strong>NAME:</strong>{{ poke_data.name }}
+        <br>
+        <strong>TYPE:</strong>{{ poke_data.type }}
+        <br>
+        <strong>HEIGHT:</strong>{{ poke_data.height }}
+        <br>
+        <strong>WEIGHT:</strong>{{ poke_data.weight }}
+        <br>
+        <strong>MOVES:</strong>{{ poke_data.move }}
+        <br>
+        <strong>ABILITIES:</strong>{{ poke_data.abilities }}
+        <p></p>
+    {% endfor %}
+</body>
+</html>
